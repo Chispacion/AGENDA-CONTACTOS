@@ -1,0 +1,29 @@
+{
+  "contactos": [
+    {
+      "id": "1",
+      "nombre": "Juan Rodríguez",
+      "telefono": "+57 300 123 4567",
+      "email": "juan@email.com",
+      "categoria": "Amigo",
+      "notas": "Cumpleaños el 15 de marzo"
+    },
+    {
+      "id": "2",
+      "nombre": "María López",
+      "telefono": "+57 310 987 6543",
+      "email": "maria@trabajo.com",
+      "categoria": "Trabajo",
+      "notas": ""
+    },
+    {
+      "nombre": "Sebastian Gamarra Monsalve",
+      "telefono": "30466463202",
+      "email": "sebas@gmail.com",
+      "categoria": "Trabajo",
+      "notas": "Cumple mañana",
+      "id": "4ndtldypcec"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

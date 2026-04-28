@@ -1,0 +1,94 @@
+<div class="min-h-screen bg-[#1e1e1e] flex items-center justify-center p-6">
+  <div class="bg-[#252525] rounded-3xl shadow-xl border border-slate-700 w-full max-w-md overflow-hidden">
+
+    <!-- Header -->
+    <div class="px-6 py-6 border-b border-slate-700">
+      <h2 class="text-slate-50 text-xl font-semibold">
+        {{ esEdicion ? '✏️ Editar contacto' : '➕ Nuevo contacto' }}
+      </h2>
+      <p class="text-slate-400 text-sm mt-1">
+        {{ esEdicion ? 'Modifica los datos del contacto' : 'Completa los datos del nuevo contacto' }}
+      </p>
+    </div>
+
+    <!-- Formulario -->
+    <div class="p-6 space-y-4">
+
+      <!-- Nombre -->
+      <div>
+        <label class="text-xs text-slate-400 mb-1 block">Nombre completo</label>
+        <input
+          [(ngModel)]="contacto.nombre"
+          placeholder="Ej: Juan Rodríguez"
+          class="w-full bg-[#1f1f1f] border border-slate-700 rounded-2xl px-4 py-3 text-sm text-slate-50 placeholder:text-slate-500
+                 focus:outline-none focus:ring-2 focus:ring-sky-400"
+        />
+      </div>
+
+      <!-- Teléfono -->
+      <div>
+        <label class="text-xs text-slate-400 mb-1 block">Teléfono</label>
+        <input
+          [(ngModel)]="contacto.telefono"
+          placeholder="Ej: +57 300 123 4567"
+          class="w-full bg-[#1f1f1f] border border-slate-700 rounded-2xl px-4 py-3 text-sm text-slate-50 placeholder:text-slate-500
+                 focus:outline-none focus:ring-2 focus:ring-sky-400"
+        />
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label class="text-xs text-slate-400 mb-1 block">Email</label>
+        <input
+          [(ngModel)]="contacto.email"
+          placeholder="Ej: juan@email.com"
+          class="w-full bg-[#1f1f1f] border border-slate-700 rounded-2xl px-4 py-3 text-sm text-slate-50 placeholder:text-slate-500
+                 focus:outline-none focus:ring-2 focus:ring-sky-400"
+        />
+      </div>
+
+      <!-- Categoría -->
+      <div>
+        <label class="text-xs text-slate-400 mb-1 block">Categoría</label>
+        <select
+          [(ngModel)]="contacto.categoria"
+          class="w-full bg-[#1f1f1f] border border-slate-700 rounded-2xl px-4 py-3 text-sm text-slate-50
+                 focus:outline-none focus:ring-2 focus:ring-sky-400">
+          @for (cat of categorias; track cat) {
+            <option [value]="cat" class="bg-[#1f1f1f] text-slate-50">{{ cat }}</option>
+          }
+        </select>
+      </div>
+
+      <!-- Notas -->
+      <div>
+        <label class="text-xs text-slate-400 mb-1 block">Notas</label>
+        <textarea
+          [(ngModel)]="contacto.notas"
+          placeholder="Ej: Cumpleaños el 15 de marzo"
+          rows="3"
+          class="w-full bg-[#1f1f1f] border border-slate-700 rounded-2xl px-4 py-3 text-sm text-slate-50 placeholder:text-slate-500
+                 focus:outline-none focus:ring-2 focus:ring-sky-400 resize-none">
+        </textarea>
+      </div>
+
+    </div>
+
+    <!-- Botones -->
+    <div class="px-6 pb-6 flex gap-3">
+      <button
+        (click)="cancelar()"
+        class="flex-1 border border-slate-700 text-slate-200 hover:bg-[#1c1c1c]
+               py-3 rounded-2xl text-sm font-medium transition-colors">
+        Cancelar
+      </button>
+      <button
+        (click)="guardar()"
+        class="flex-1 bg-sky-400 shadow-[0_20px_40px_rgba(56,189,248,0.18)] hover:bg-sky-500 text-slate-950
+               py-3 rounded-2xl text-sm font-semibold transition-colors">
+        {{ esEdicion ? 'Guardar cambios' : 'Crear contacto' }}
+      </button>
+    </div>
+
+  </div>
+</div>
